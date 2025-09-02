@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Bonus Repar Helper",
+  "version": "1.0",
+  "description": "L'extension BRH permet de faciliter la création de code bonus repar à partir des données clients sur Icare",
+  "icons": {
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://asl.reparateur-bonusrepar.fr/compte/mes-demandes/creation",
+        "https://icare-europe.decathlon.net/customer/*"
+        ],
+      "js": ["env.js", "icarepage.js", "asl.js", "content-script.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
